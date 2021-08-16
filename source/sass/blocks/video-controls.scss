@@ -1,0 +1,16 @@
+.video-controls {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  &__btn {
+    @include btn-reset();
+    cursor: pointer;
+
+    &:not(last-child) {
+      margin-right: 20px;
+    }
+  }
+}

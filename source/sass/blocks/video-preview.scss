@@ -1,0 +1,45 @@
+.video-preview {
+  &__wrapper {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    //max-width: 622px;
+    //background: linear-gradient(124.94deg, #000000 -120.88%, rgba(155, 155, 155, 0) 127.52%);
+    backdrop-filter: blur(6px);
+    border-top-left-radius: 40px;
+  }
+
+  &__info {
+    padding: 35px 45px;
+
+    background-color: transparent;
+  }
+
+  &__img {
+    width: 242px;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-top-left-radius: 40px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 13px;
+    font-size: 23px;
+    font-weight: 600;
+  }
+
+  &__link {
+    color: $c-black-1;
+  }
+
+  &__play-btn {
+    position: absolute;
+    top: 30%;
+    right: 31%;
+  }
+}

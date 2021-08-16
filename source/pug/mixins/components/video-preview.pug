@@ -1,0 +1,11 @@
+mixin video-preview(title, link, img, alt)
+  .video-preview
+    .video-preview__wrapper
+      .video-preview__info
+        p.video-preview__title #{title}
+        a.video-preview__link(href=link target="_blank") Смотреть видео
+      .video-preview__img
+        +img("content", img, "jpg", auto, auto, alt)
+        a(href=link target="_blank").video-preview__play-btn
+          +icon("icon-play-big", 54, 63)
+

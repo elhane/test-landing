@@ -3,24 +3,38 @@ mixin header(headerMods, currentPage)
     var headerLinks = [
       {
         href: "#",
-        text: "Страница 1"
+        text: "Инвестиции"
       },
       {
         href: "#",
-        text: "Страница 2"
+        text: "Займы"
       },
       {
         href: "#",
-        text: "Страница 3"
+        text: "Реферальная программа"
+      },
+      {
+        href: "#",
+        text: "Блог"
+      },
+      {
+        href: "#",
+        text: "о нас"
+      },
+      {
+        href: "#",
+        text: "документы"
       },
     ]
 
   header.header(class=headerMods)
     .header__wrapper
       if(currentPage === "main")
-        a.header__logo Логотип
+        a.header__logo
+          +company-logo
       else
-        a.header__logo(href="main.html", aria-label="Переход на главную") Логотип
+        a.header__logo(href="main.html", aria-label="Переход на главную")
+          +company-logo
       nav.main-nav
         button.main-nav__toggle.btn-reset(type="button", aria-label="Переключатель отображения меню", aria-pressed="false")
           +icon("icon-burger", 20, 20)
@@ -32,3 +46,5 @@ mixin header(headerMods, currentPage)
                   a.main-nav__link.main-nav__link--active=link.text
                 else
                   a.main-nav__link(href=link.href)=link.text
+          div.main-nav__action
+            a.main-nav__action-link.btn.btn--outlined(href="") Инвестировать

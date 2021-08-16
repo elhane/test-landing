@@ -1,0 +1,44 @@
+.socials {
+  &__list {
+    @include list-reset();
+    display: flex;
+
+    .socials--row & {
+      flex-wrap: wrap;
+    }
+
+    .socials--col & {
+      flex-direction: column;
+    }
+  }
+
+  &__item {
+    &:not(:last-child) {
+      .socials--col & {
+        margin-bottom: 20px;
+      }
+
+      .socials--row & {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 39px;
+    height: 39px;
+    border-radius: 50%;
+
+    .socials--white & {
+      background-color: $c-white;
+    }
+
+    .socials--black & {
+      background-color: $c-gray;
+    }
+  }
+
+}

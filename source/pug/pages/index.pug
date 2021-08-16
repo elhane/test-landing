@@ -16,13 +16,15 @@ block main
     }
 
     a {
-      color: rgb(10, 10, 175);
+      padding-left: 15px;
+      color: #ff970a;
+      font-weight: 500;
     }
 
     li {
       font-size: 18px;
       line-height: 22px;
-      margin-bottom: 7px;
+      margin-bottom: 10px;
     }
 
     img {
@@ -58,14 +60,10 @@ block main
         name: "Главная — main.html",
         src: "main.html"
       },
-      {
-        name: "Название страницы (состояние страницы, если отдельное) — ссылка на страницу",
-        src: "#"
-      },
     ]
 
   main.container.main-index
-    img(src="https://via.placeholder.com/300x150" width="300" alt="Логотип проекта")
+    +company-logo
     h1 Список страниц
     ol
       each page in pages

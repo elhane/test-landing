@@ -1,0 +1,8 @@
+mixin socials(data)
+  .socials(class!=attributes.class)
+    ul.socials__list
+      each item in data
+        li.socials__item
+          a.socials__link(href=item.href)
+            span.visually-hidden #{item.name}
+            +icon(item.icon, item.width, item.height)
