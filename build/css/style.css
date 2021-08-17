@@ -661,6 +661,11 @@ button,
   transition: none !important;
 }
 
+.scroll-lock {
+  position: fixed;
+  overflow-y: auto;
+}
+
 @-webkit-keyframes disableBreakpointAnimation {
   0% {
     visibility: hidden;
@@ -717,6 +722,7 @@ button,
 }
 
 .main-nav {
+  position: relative;
   width: 100%;
 }
 
@@ -746,6 +752,13 @@ button,
 
 .main-nav__toggle {
   display: none;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+}
+
+.main-nav__toggle path {
+  fill: #000000;
 }
 
 .main-nav__wrapper {
@@ -755,6 +768,8 @@ button,
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-transition: 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: 0.6s cubic-bezier(0.55, 0, 0.1, 1);
 }
 
 .footer {
@@ -877,7 +892,6 @@ button,
   text-transform: uppercase;
   vertical-align: middle;
   text-align: center;
-  word-break: break-word;
   outline: 0;
   background: linear-gradient(52deg, #ff970a 18.82%, #ff9519 77.36%);
   -webkit-box-shadow: 0 3px 15px rgba(255, 151, 10, 0.41);
@@ -1164,6 +1178,12 @@ button,
   }
 } */
 
+@media (min-width: 768px) {
+  .header__logo-mobile {
+    display: none;
+  }
+}
+
 @media (max-width: 1439px) {
   .container {
     padding: 0 32px;
@@ -1173,6 +1193,84 @@ button,
 @media (max-width: 1023px) {
   .container {
     padding: 0 24px;
+  }
+
+  .main-nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+  }
+
+  .main-nav__list {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    text-align: right;
+    margin-left: 0;
+    margin-bottom: 40px;
+  }
+
+  .main-nav__item:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  .main-nav__toggle {
+    position: relative;
+    display: block;
+    z-index: 2;
+  }
+
+  .menu-opened .main-nav__toggle svg path {
+    fill: #000000;
+  }
+
+  .main-nav__wrapper {
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 70px 30px 40px;
+    min-width: 300px;
+    background-color: #ff970a;
+    border-bottom-left-radius: 50px;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    pointer-events: none;
+  }
+
+  .main-nav__wrapper.menu-opened {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    -webkit-transform: none;
+    transform: none;
+  }
+
+  .main-nav__action {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .main-nav__action-link {
+    color: #ff9519;
+    width: 100%;
+    background-color: #000000;
   }
 }
 
@@ -1189,6 +1287,10 @@ button,
 
   .container--no-padding {
     padding: 0;
+  }
+
+  .header__logo-desktop {
+    display: none;
   }
 
   .modal__wrapper {

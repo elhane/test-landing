@@ -2,8 +2,8 @@
 // import {polyfillObjectFit} from './utils/polyfill-object-fit';
 
 import {iosVhFix} from './utils/ios-vh-fix';
-
 import {initModals} from './modules/modals/init-modals';
+import {initMenu} from './modules/menu';
 
 //-- этот скрипт загружает модуль для тестирования, его не должно быть в финальном билде и на проде для клиента
 import {testInstruments} from './vendor/testInstruments';
@@ -13,17 +13,11 @@ import {testInstruments} from './vendor/testInstruments';
 
 window.addEventListener('DOMContentLoaded', () => {
 
-  // Utils
-  // ---------------------------------
-
-  // только если ie11
-  // ieFix();
-  // https://github.com/fregante/object-fit-images
-  // polyfillObjectFit();
-
   iosVhFix();
 
   // Modules
+
+  initMenu();
   // ---------------------------------
 
   // все скрипты должны быть в обработчике 'DOMContentLoaded', но не все в 'load'
